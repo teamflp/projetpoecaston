@@ -1,0 +1,11 @@
+<div class="w3-row-padding container">
+    <div class="w3-third w3-container w3-margin-bottom" *ngFor="let el of images">
+      <img [src]="el.image" [alt]="el.name" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p class="name">{{ el.name }}</p>
+        <p>{{ el.description }}</p>
+        <button class="w3-btn w3-black">Visiter <i class="fas fa-arrow-circle-right"></i></button>
+      </div>
+    </div>
+  </div>
+<router-outlet></router-outlet>
