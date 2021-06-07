@@ -8,7 +8,7 @@ import { ContactComponent } from './composants/contact/contact.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-   { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'visite', component: VisiteComponent, pathMatch: 'full'  },
   { path: 'inscription', component: InscriptionComponent, pathMatch: 'full'  },
   { path: 'connexion', component: ConnexionComponent, pathMatch: 'full'  },

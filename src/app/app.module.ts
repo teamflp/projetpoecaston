@@ -10,6 +10,8 @@ import { InscriptionComponent } from './composants/inscription/inscription.compo
 import { ConnexionComponent } from './composants/connexion/connexion.component';
 import { ContactComponent } from './composants/contact/contact.component';
 import { FooterComponent } from './composants/footer/footer.component';
+import { ScrollToTopDirective } from './scroll-to-top.directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { FooterComponent } from './composants/footer/footer.component';
     InscriptionComponent,
     ConnexionComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    ScrollToTopDirective,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [
