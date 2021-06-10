@@ -62,9 +62,14 @@ export class HomeComponent implements OnInit {
       description: 'Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.',
     },
   ];
+
   constructor() { }
 
   ngOnInit(): void {
+//     $(window).ready(function(){
+//        $('#p').click(function(){
+//           $(this).css({color: 'red'});
+//        });
+//     });
   }
-
 }

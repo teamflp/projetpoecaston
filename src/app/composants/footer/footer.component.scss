@@ -1,0 +1,54 @@
+.social {
+   margin-left: 20px;
+   color: #fff;
+   transition: all .05s ease;
+}
+.facebook {
+	&:is(:hover) {
+		color: hsl(220, 46%, 48%);
+		transition: all .05s ease;
+	}
+}
+.instagram {
+	&:is(:hover) {
+		color: hsl(313, 65%, 46%);
+		transition: all .05s ease;
+	}
+}
+.snapchat {
+	&:is(:hover) {
+		color: hsl(59, 100%, 50%);
+		transition: all .05s ease;
+	}
+}
+.twitter {
+	&:is(:hover) {
+		color: hsl(203, 89%, 53%);
+		transition: all .05s ease;
+	}
+}
+.youtube {
+	&:is(:hover) {
+		color: hsl(0, 100%, 50%);
+		transition: all .05s ease;
+	}
+}
+.pinterest {
+	&:is(:hover) {
+		color: hsl(357, 70%, 46%);
+		transition: all .05s ease;
+	}
+}
+.mysocials {
+   background-color: #333;
+}
+
+.btn_scroll-top {
+	bottom: 64px;
+	position: fixed;
+	right: 1rem;
+	justify-content: center;
+	align-items: center;
+	transition: opacity 0.25s ease-in-out;
+	z-index: 1000;
+}

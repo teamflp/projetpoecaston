@@ -11,3 +11,13 @@ body {
 	font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.mycontent {
+    margin-top: 20px;
+    padding-bottom: 5% !important;
+    p.name{
+      font-weight: bold;
+    }
+}
+input {
+  caret-color: #00f;
+}
