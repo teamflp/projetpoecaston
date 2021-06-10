@@ -1,0 +1,85 @@
+<div class="container mycontent pt-5">
+  <div class="w3-container mx-auto w3-black col-12">
+    <h2><i class="fas fa-user-plus"></i></h2>
+  </div>
+  <div>
+    <form class="w3-container mx-auto w3-card-4 pt-3 pb-3">
+      <div class="w3-row">
+        <div class="w3-col m5">
+          <p>
+            <label class="w3-text-grey">Nom * &nbsp;&nbsp;&nbsp;&nbsp;<span id="fname"></span></label>
+            <input class="w3-input w3-border" name="first_name" id="first_name" type="text" required="">
+          </p>
+        </div>
+        <div class="w3-col m2"></div>
+        <div class="w3-col m5 w3-right">
+          <p>
+            <label class="w3-text-grey">Prénom &nbsp;&nbsp;&nbsp;&nbsp;<span id="lname"></span></label>
+            <input class="w3-input w3-border" name="last_name" id="last_name" type="text" required="">
+          </p>
+        </div>
+        <div class="w3-col m5">
+          <p>
+            <label class="w3-text-grey">Date de naissance</label>
+            <input class="w3-input w3-border" name="birthdate" type="date" required="">
+          </p>
+        </div>
+        <div class="w3-col m2"></div>
+        <div class="w3-col m5 w3-right">
+          <p>
+            <label class="w3-text-grey">Téléphone</label>
+            <input class="w3-input w3-border" name="phone" type="text" required="">
+          </p>
+        </div>
+        <div class="w3-col m5">
+          <p>
+            <label class="w3-text-grey">Addresse email</label>
+            <input class="w3-input w3-border" name="email" type="email" required="">
+          </p>
+        </div>
+        <div class="w3-col m2"></div>
+        <div class="w3-col m5 w3-right container-password">
+          <p>
+            <label class="w3-text-grey">mot de passe</label>
+            <input matInput class="w3-input w3-border" name="password" required="" [type]="cacher ? 'text' : 'password'">
+            <i (click)="showPassword()" [ngClass]="[afficher ? 'far fa-eye' : 'far fa-eye-slash', 'w3-right']"></i>
+          </p>
+        </div>
+        <div class="w3-col m5">
+          <p>
+            <label class="w3-text-grey">Numéro de rue</label>
+            <input class="w3-input w3-border" name="num" type="number" required="">
+          </p>
+        </div>
+        <div class="w3-col m2"></div>
+        <div class="w3-col m5 w3-right">
+          <p>
+            <label class="w3-text-grey">Rue</label>
+            <input class="w3-input w3-border" name="street" type="text" required="">
+          </p>
+        </div>
+        <div class="w3-col m5">
+          <p>
+            <label class="w3-text-grey">Code postale</label>
+            <input class="w3-input w3-border" name="zip" type="number" required="">
+          </p>
+        </div>
+        <div class="w3-col m2"></div>
+        <div class="w3-col m5 w3-right">
+          <p>
+            <label class="w3-text-grey">Ville</label>
+            <input class="w3-input w3-border" name="city" type="text" required="">
+          </p>
+        </div>
+      </div>
+      <div class="w3-row">
+        <div class="w3-col m6">
+          <button type="submit" [disabled]="!profileForm.valid" (click)="saveInscription()" class="w3-btn w3-padding w3-black" style="width:120px">S'inscrire&nbsp; ❯</button>
+        </div>
+        <div class="w3-col m6">
+          <a [routerLink]="['/connexion']" class="">Se connecter.</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

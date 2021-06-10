@@ -1,0 +1,24 @@
+.container-password {
+  position: relative;
+}
+
+.fa-eye, .fa-eye-slash {
+  position: absolute;
+  top: 35px;
+  left: 450px;
+}
+
+.error {
+  color: #f00;
+}
+
+.bgInvalid {
+  background-color: rgba(250, 149, 149, 0.15);
+}
+
+label > b {
+  content: "*";
+  color: #f00;
+}
+
+/*# sourceMappingURL=inscription.component.css.map */

@@ -1,0 +1,15 @@
+.container-password {
+    position: relative;
+}
+.fa-eye, .fa-eye-slash {
+    position: absolute;
+    top: 35px;
+    left: 500px;
+}
+#fname, #lname {
+  color: #f00;
+}
+.bgInvalid {
+  background-color: rgba(250, 149, 149, 0.315);
+}
+

@@ -1,0 +1,40 @@
+<header class="bg-light">
+  <section class="w3-center w3-card w3-top navbar-secondaire bg-light">
+    <div class="container mysocials">
+      <p>
+        <a class="headersocial facebook" href=""><i class="fab fa-facebook w3-hover-opacity"></i></a>
+        <a class="headersocial instagram" href=""><i class="fab fa-instagram w3-hover-opacity"></i></a>
+        <a class="headersocial snapchat" href=""><i class="fab fa-snapchat w3-hover-opacity"></i></a>
+        <a class="headersocial pinterest" href=""><i class="fab fa-pinterest-p w3-hover-opacity"></i></a>
+        <a class="headersocial twitter" href=""><i class="fab fa-twitter w3-hover-opacity"></i></a>
+        <a class="headersocial youtube" href=""><i class="fab fa-youtube w3-hover-opacity"></i></a>
+        <a (click)="isShown = false" [routerLink]="['/connexion']" class="w3-text-bluelight w3-hover-opacity w3-right"><i class="fas fa-user-circle"></i></a>
+      </p>
+    </div>
+  </section>
+  <img class="img-fluid" [src]="cover" alt="cover">
+
+  <!--  barre de navigation pricipale -->
+  <nav [ngClass]="{'w3-top': isSticky}"
+       class="container w3-white navbar navbar-expand-lg navbar-light bg-light navbar-principale">
+    <button #navbarToggler (click)="isShown = !isShown" [attr.aria-expanded]="isShown" aria-controls="navbarSupportedContent" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': isShown }" id="navbarSupportedContent" >
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" (click)="isShown = false" routerLink="/"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a (click)="isShown = false" [routerLink]="['/visite']" class="nav-link">Visite guidée</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="isShown = false" [routerLink]="['/contact']">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<router-outlet></router-outlet>
+
+
