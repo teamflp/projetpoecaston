@@ -10,8 +10,9 @@ import { ConnexionComponent } from './composants/connexion/connexion.component';
 import { ContactComponent } from './composants/contact/contact.component';
 import { FooterComponent } from './composants/footer/footer.component';
 import { ScrollToTopDirective } from './scroll-to-top.directive';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
+import { UserprofileComponent } from './composants/userprofile/userprofile.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +25,14 @@ import { HttpClientModule } from "@angular/common/http";
     ContactComponent,
     FooterComponent,
     ScrollToTopDirective,
+    UserprofileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [

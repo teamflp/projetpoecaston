@@ -1,0 +1,112 @@
+header {
+  z-index: 2000;
+}
+header > nav {
+  /*transform: scale(0.9);*/
+  /* opacity: 0.8; */
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.664);
+}
+header img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  transition: all 0.3s ease 0s;
+  background-color: #000;
+  /* opacity: 1;*/
+}
+header img:is(:hover) {
+  transition: all 0.3s ease;
+}
+
+section {
+  opacity: 0.8;
+  padding: 6px 0 0 0;
+}
+
+.headersocial {
+  margin-left: 20px;
+  color: #fff;
+  font-size: 1em;
+  transition: all 0.05s ease;
+}
+
+.facebook {
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  padding: 1px 4.4px 1px 4px;
+  background-color: #4268b3;
+  transition: all 0.05s ease;
+}
+.facebook:is(:hover) {
+  transition: all 0.05s ease;
+}
+
+.instagram {
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  padding: 1px 4.4px 1px 4px;
+  transition: all 0.05s ease;
+  background-color: #c229a1;
+}
+.instagram:is(:hover) {
+  transition: all 0.05s ease;
+}
+
+.snapchat {
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  padding: 1px 4.4px 1px 4px;
+  transition: all 0.05s ease;
+  background-color: #fffb00;
+}
+.snapchat:is(:hover) {
+  transition: all 0.05s ease;
+}
+
+.twitter {
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  padding: 1px 4.4px 1px 4px;
+  transition: all 0.05s ease;
+  background-color: #1ca0f2;
+}
+.twitter:is(:hover) {
+  transition: all 0.05s ease;
+}
+
+.youtube {
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  padding: 1px 4.4px 1px 4px;
+  transition: all 0.05s ease;
+  background-color: red;
+}
+.youtube:is(:hover) {
+  transition: all 0.05s ease;
+}
+
+.pinterest {
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  padding: 1px 4.4px 1px 4px;
+  transition: all 0.05s ease;
+  background-color: #c7232b;
+}
+.pinterest:is(:hover) {
+  transition: all 0.05s ease;
+}
+
+/*# sourceMappingURL=header.component.css.map */

@@ -18,6 +18,35 @@ body {
       font-weight: bold;
     }
 }
-input {
-  caret-color: #00f;
+
+/**
+ * FORMULAIRES DE CONNEXION ET D'INSCRIPTION
+ * On retrire le sous-lignage sur les
+ * liens de formulaire
+ */
+
+.container-password {
+  position: relative;
 }
+.fa-eye, .fa-eye-slash {
+  position: absolute;
+  top: 35px;
+  left: 500px;
+}
+.error {
+  color: #f00;
+}
+
+.bgInvalid {
+  background-color: rgba(250, 149, 149, 0.15);
+}
+label>b {
+  color: #f00;
+  &:after{
+    content: '*';
+  }
+}
+.link-login a {
+  text-decoration: none;
+}
+

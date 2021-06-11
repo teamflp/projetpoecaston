@@ -1,21 +1,40 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, Validators, FormBuilder, FormControl} from '@angular/forms';
+import {FormGroup, Validators, FormBuilder, FormControl, NgForm} from '@angular/forms';
 import { MustMatch } from '../mustmatch';
+import { UsersService } from "../../service/users.service";
+import { HttpErrorResponse } from "@angular/common/http";
+import { Users } from "../../models/users";
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-inscription',
+  selector: 'app-Inscription',
   templateUrl: './inscription.component.html',
   styleUrls: ['./inscription.component.scss']
 })
 export class InscriptionComponent implements OnInit {
-
-  inscriptionForm: FormGroup;
+  // Control et validations des champs
+  userForm: FormGroup;
 	hide = true;
-	cacher: Boolean = false;
-	afficher: Boolean = false;
+	pwdHide: Boolean = false;
+	pwdShow: Boolean = false;
+  pwdConfHide: Boolean = false;
+  pwdConfShow: Boolean = false;
 	submitted = false;
+  user: Users = new class implements Users {
+    birthday: Date;
+    city: string;
+    email: string;
+    first_name: string;
+    id: number;
+    last_name: string;
+    num: string;
+    password: string;
+    phone: string;
+    street: string;
+    zip: string;
+  }
 
-  constructor(private formBuilder: FormBuilder){}
+  constructor(private formBuilder: FormBuilder, private usersService: UsersService, private router: Router){}
 
 //   inscriptionForm = new FormGroup({
 //     first_name: new FormControl(['',Validators.required]),
@@ -39,7 +58,7 @@ export class InscriptionComponent implements OnInit {
 //     });
 
   ngOnInit(): void {
-    this.inscriptionForm = this.formBuilder.group({
+    this.userForm = this.formBuilder.group({
       first_name:['',Validators.required],
       last_name: ['',Validators.required],
       birthday: ['',Validators.required],
@@ -53,29 +72,43 @@ export class InscriptionComponent implements OnInit {
       city: ['',Validators.required],
     },{validator: MustMatch('password', 'passwordConfirm')
     });
-  }
 
+  }
 	get f(){
-	  return this.inscriptionForm.controls;
+	  return this.userForm.controls;
   }
 
   onSubmit() {
     this.submitted = true;
-    if(this.inscriptionForm.invalid){
+    if(this.userForm.invalid){
       return;
     }
-
-    alert('Données enrégistrées.\n\n' + JSON.stringify(this.inscriptionForm.value, null, 4));
+    alert("Votre compte a été créer avec succès.");
+    // alert('Données enrégistrées.\n\n' + JSON.stringify(this.userForm.value, null, 4));
   }
 
   onReset(){
     this.submitted = false;
-    this.inscriptionForm.reset();
+    this.userForm.reset();
   }
 
 	showPassword() {
-		this.cacher = !this.cacher;
-		this.afficher = !this.afficher;
+		this.pwdHide = !this.pwdHide;
+		this.pwdShow = !this.pwdShow;
 	}
+
+  showPasswordConf() {
+    this.pwdConfHide = !this.pwdConfHide;
+    this.pwdConfShow = !this.pwdConfShow;
+  }
+
+  addUsers(){
+    console.debug(this.user);
+    this.usersService.addUsers(this.user).subscribe(data => {
+      alert("Votre compte a été créer avec succès.");
+      this.router.navigate([''])
+    });
+  }
+
 }
 

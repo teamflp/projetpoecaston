@@ -1,11 +1,9 @@
 <div class="container mycontent pt-5">
-
-<!--  <div class="cadre"></div>-->
   <div class="w3-container mx-auto w3-black col-6">
     <h2><i class="fas fa-user-plus"></i></h2>
   </div>
   <div>
-    <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()" class="w3-container col-6 mx-auto w3-card-4 pt-3 pb-3">
+    <form (ngSubmit)="onSubmit(); userForm.reset()" [formGroup]="userForm" class="w3-container col-6 mx-auto w3-card-4 pt-3 pb-3">
       <div class="w3-row">
         <div class="w3-col m12">
           <p>
@@ -14,7 +12,8 @@
                 <span *ngIf="f.first_name.errors.required" class="error"> Veuillez renseigner votre nom.</span>
               </span>
             </label>
-            <input class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.first_name.errors}" formControlName="first_name" type="text" required="">
+            <input [(ngModel)]="user.first_name" [ngClass]="{'bgInvalid': submitted && f.first_name.errors}"
+                   class="w3-input w3-border" formControlName="first_name" required="" type="text">
           </p>
         </div>
         <div class="w3-col m12 w3-right">
@@ -24,7 +23,7 @@
                 <span *ngIf="f.last_name.errors.required" class="error"> Veuillez renseigner votre prénom.</span>
               </span>
             </label>
-            <input class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.last_name.errors}" formControlName="last_name" type="text" required="">
+            <input [(ngModel)]="user.last_name" class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.last_name.errors}" formControlName="last_name" type="text" required="">
           </p>
         </div>
         <div class="w3-col m12">
@@ -34,7 +33,7 @@
                 <span *ngIf="f.birthday.errors.required" class="error"> Veuillez renseigner votre date de naissance.</span>
               </span>
             </label>
-            <input class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.birthday.errors}" formControlName="birthday" type="date" required="">
+            <input [(ngModel)]="user.birthday" class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.birthday.errors}" formControlName="birthday" type="date" required="">
           </p>
         </div>
         <div class="w3-col m12 w3-right">
@@ -43,7 +42,7 @@
               <span *ngIf="submitted && f.phone.errors">
                 <span *ngIf="f.phone.errors.required" class="error"> Veuillez renseigner votre numéro de téléphone.</span>
               </span>
-            <input class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.phone.errors}" formControlName="phone" type="text" required="">
+            <input [(ngModel)]="user.phone" class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.phone.errors}" formControlName="phone" type="text" required="">
           </p>
         </div>
         <div class="w3-col m12">
@@ -53,7 +52,7 @@
                 <span *ngIf="f.email.errors.required" class="error"> Veuillez renseigner votre addresse email.</span>
                 <span *ngIf="f.email.errors.email" class="error"> Addresse email renseignée est invalide.</span>
               </span>
-            <input class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.email.errors}" formControlName="email" type="email" required="">
+            <input [(ngModel)]="user.email" class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.email.errors}" formControlName="email" type="email" required="">
           </p>
         </div>
         <div class="w3-col m12 w3-right container-password">
@@ -63,8 +62,8 @@
                 <span *ngIf="f.password.errors.required" class="error"> Veuillez renseigner un mot de passe.</span>
                 <span *ngIf="f.password.errors.minlength" class="error"> Le mot de passe doit contenir au minimum 6 caractères.</span>
               </span>
-            <input class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.password.errors}" formControlName="password" required="" [type]="cacher ? 'text' : 'password'">
-            <i (click)="showPassword()" [ngClass]="[afficher ? 'far fa-eye' : 'far fa-eye-slash', 'w3-right']"></i>
+            <input [(ngModel)]="user.password" class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.password.errors}" formControlName="password" required="" [type]="pwdHide ? 'text' : 'password'">
+            <i (click)="showPassword()" [ngClass]="[pwdShow ? 'far fa-eye' : 'far fa-eye-slash', 'w3-right']"></i>
           </p>
         </div>
 
@@ -75,11 +74,10 @@
                 <span *ngIf="f.passwordConfirm.errors.required" class="error"> Veuillez confirmer le mot de passe.</span>
                 <span *ngIf="f.passwordConfirm.errors.mustMatch" class="error"> Les deux mots de passe ne correspondent pas.</span>
               </span>
-            <input class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.password.errors}" formControlName="passwordConfirm" required="" [type]="cacher ? 'text' : 'password'">
-            <i (click)="showPassword()" [ngClass]="[afficher ? 'far fa-eye' : 'far fa-eye-slash', 'w3-right']"></i>
+            <input class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.password.errors}" formControlName="passwordConfirm" required="" [type]="pwdConfHide ? 'text' : 'password'">
+            <i (click)="showPasswordConf()" [ngClass]="[pwdConfShow ? 'far fa-eye' : 'far fa-eye-slash', 'w3-right']"></i>
           </p>
         </div>
-
 
         <div class="w3-col m12">
           <p>
@@ -87,7 +85,7 @@
               <span *ngIf="submitted && f.num.errors">
                 <span *ngIf="f.num.errors.required" class="error"> Veuillez renseigner le numéro de rue.</span>
               </span>
-            <input class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.num.errors}" formControlName="num" type="number" required="">
+            <input [(ngModel)]="user.num" class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.num.errors}" formControlName="num" type="number" required="">
           </p>
         </div>
         <div class="w3-col m12 w3-right">
@@ -96,7 +94,7 @@
               <span *ngIf="submitted && f.street.errors">
                 <span *ngIf="f.street.errors.required" class="error"> Veuillez renseigner la rue.</span>
               </span>
-            <input class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.street.errors}" formControlName="street" type="text" required="">
+            <input [(ngModel)]="user.street" class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.street.errors}" formControlName="street" type="text" required="">
           </p>
         </div>
         <div class="w3-col m12">
@@ -105,7 +103,7 @@
               <span *ngIf="submitted && f.zip.errors">
                 <span *ngIf="f.zip.errors.required" class="error"> Veuillez renseigner le code postale.</span>
               </span>
-            <input class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.zip.errors}" formControlName="zip" type="number" required="">
+            <input [(ngModel)]="user.zip" class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.zip.errors}" formControlName="zip" type="number" required="">
           </p>
         </div>
         <div class="w3-col m12 w3-right">
@@ -114,18 +112,23 @@
               <span *ngIf="submitted && f.city.errors">
                 <span *ngIf="f.city.errors.required" class="error"> Veuillez renseigner la ville.</span>
               </span>
-            <input class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.city.errors}" formControlName="city" type="text" required="">
+            <input [(ngModel)]="user.city" class="w3-input w3-border" [ngClass]="{'bgInvalid': submitted && f.city.errors}" formControlName="city" type="text" required="">
           </p>
         </div>
       </div>
+      <hr />
       <div class="w3-row">
         <div class="w3-col m12">
-          <button type="reset" (click)="onReset()" class="w3-btn w3-padding w3-black" style="width:120px">Recommencer</button>
+          <div class="w3-col m4">
+            <button type="reset" (click)="onReset()" class="w3-btn w3-padding w3-black" id="add-new-user" style="width:120px">Rénitialiser</button>
+          </div>
+          <div class="w3-col m4">
+            <button type="submit" (click)="addUsers()" class="w3-btn w3-padding w3-black" style="width:120px">S'inscrire&nbsp; ❯</button>
+          </div>
+          <div class="w3-col m4 link-login">
+            <a [routerLink]="['/connexion']" class="">Se connecter.</a>
+          </div>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="submit" class="w3-btn w3-padding w3-black" style="width:120px">S'inscrire&nbsp; ❯</button>
-        </div>
-        <div class="w3-col m12">
-          <a [routerLink]="['/connexion']" class="">Se connecter.</a>
         </div>
       </div>
     </form>

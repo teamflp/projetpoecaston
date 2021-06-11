@@ -1,0 +1,51 @@
+.social {
+  margin-left: 20px;
+  color: #fff;
+  transition: all 0.05s ease;
+}
+
+.facebook:is(:hover) {
+  color: #4268b3;
+  transition: all 0.05s ease;
+}
+
+.instagram:is(:hover) {
+  color: #c229a1;
+  transition: all 0.05s ease;
+}
+
+.snapchat:is(:hover) {
+  color: #fffb00;
+  transition: all 0.05s ease;
+}
+
+.twitter:is(:hover) {
+  color: #1ca0f2;
+  transition: all 0.05s ease;
+}
+
+.youtube:is(:hover) {
+  color: red;
+  transition: all 0.05s ease;
+}
+
+.pinterest:is(:hover) {
+  color: #c7232b;
+  transition: all 0.05s ease;
+}
+
+.mysocials {
+  background-color: #333;
+}
+
+.btn_scroll-top {
+  bottom: 64px;
+  position: fixed;
+  right: 1rem;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.25s ease-in-out;
+  z-index: 1000;
+}
+
+/*# sourceMappingURL=footer.component.css.map */

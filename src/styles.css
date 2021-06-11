@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import  "~bootstrap/dist/css/bootstrap.css" ; */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  scroll-behavior: smooth;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mycontent {
+  margin-top: 20px;
+  padding-bottom: 5% !important;
+}
+.mycontent p.name {
+  font-weight: bold;
+}
+
+/**
+ * FORMULAIRES DE CONNEXION ET D'INSCRIPTION
+ * On retrire le sous-lignage sur les
+ * liens de formulaire
+ */
+.container-password {
+  position: relative;
+}
+
+.fa-eye, .fa-eye-slash {
+  position: absolute;
+  top: 35px;
+  left: 500px;
+}
+
+.error {
+  color: #f00;
+}
+
+.bgInvalid {
+  background-color: rgba(250, 149, 149, 0.15);
+}
+
+label > b {
+  color: #f00;
+}
+label > b:after {
+  content: "*";
+}
+
+.link-login a {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=styles.css.map */

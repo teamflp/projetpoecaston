@@ -1,20 +1,23 @@
 <header class="bg-light">
-  <section class="w3-center w3-card w3-top navbar-secondaire bg-light">
-    <div class="container mysocials">
-<!--        <a class="headersocial facebook" href=""><i class="fab fa-facebook w3-hover-opacity"></i></a>-->
-<!--        <a class="headersocial instagram" href=""><i class="fab fa-instagram w3-hover-opacity"></i></a>-->
-<!--        <a class="headersocial snapchat" href=""><i class="fab fa-snapchat w3-hover-opacity"></i></a>-->
-<!--        <a class="headersocial pinterest" href=""><i class="fab fa-pinterest-p w3-hover-opacity"></i></a>-->
-<!--        <a class="headersocial twitter" href=""><i class="fab fa-twitter w3-hover-opacity"></i></a>-->
-<!--        <a class="headersocial youtube" href=""><i class="fab fa-youtube w3-hover-opacity"></i></a>-->
-
-      <div class="w3-dropdown-hover w3-right">
-          <button class="w3-button"><i class="fas fa-user-circle"></i></button>
+  <section class="w3-left w3-card w3-top navbar-secondaire bg-light">
+    <div class="w3-row container mysocials">
+      <div class="w3-col m6 float-left">
+        <button class="w3-button"><a class="headersocial facebook" href=""><i class="fab fa-facebook w3-hover-opacity"></i></a></button>
+        <button class="w3-button"><a class="headersocial instagram" href=""><i class="fab fa-instagram w3-hover-opacity"></i></a></button>
+        <button class="w3-button"><a class="headersocial snapchat" href=""><i class="fab fa-snapchat w3-hover-opacity"></i></a></button>
+        <button class="w3-button"><a class="headersocial pinterest" href=""><i class="fab fa-pinterest-p w3-hover-opacity"></i></a></button>
+        <button class="w3-button"><a class="headersocial twitter" href=""><i class="fab fa-twitter w3-hover-opacity"></i></a></button>
+        <button class="w3-button"><a class="headersocial youtube" href=""><i class="fab fa-youtube w3-hover-opacity"></i></a></button>
+      </div>
+      <div class="w3-col m6 w3-center float-left">
+        <div class="w3-dropdown-hover">
+          <button class="w3-button w3-black"><i class="fas fa-user-circle"></i></button>
           <div class="w3-dropdown-content w3-bar-block w3-border">
             <a (click)="isShown = false" [routerLink]="['/connexion']" class="w3-bar-item w3-button w3-text-bluelight w3-hover-opacity">Connexion</a>
             <a (click)="isShown = false" [routerLink]="['/inscription']" class="w3-bar-item w3-button">Inscription</a>
           </div>
         </div>
+      </div>
     </div>
   </section>
   <img class="img-fluid" [src]="cover" alt="cover">
